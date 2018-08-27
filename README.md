@@ -1,5 +1,5 @@
 # DHUStore
-![导图](https://github.com/lmy1108/DHUStore/image/graph.jpg)
+![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.png)
 ## 2.1 前端技术
 ### 2.1.1 LayUI
 layUI是一款采用自身模块规范编写的前端 UI 框架，遵循原生 HTML/CSS/JS 的书写与组织形式。本项目使用了LayUI提供的后台框架进行本系统后台的架构，并使用大量LayUI组件，例如一些小图标等，用于完善系统功能，美化界面。
