@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhu.demo2.dao.StoreCartMapper" >
+  <resultMap id="BaseResultMap" type="com.dhu.demo2.pojo.StoreCart" >
+    <id column="userId" property="userid" jdbcType="INTEGER" />
+    <id column="productid" property="productid" jdbcType="INTEGER" />
+    <result column="cateDate" property="catedate" jdbcType="TIMESTAMP" />
+    <result column="productNum" property="productnum" jdbcType="INTEGER" />
+    <result column="sellerId" property="sellerid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    userId, productid, cateDate, productNum, sellerId
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dhu.demo2.pojo.StoreCartExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from storecart
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.dhu.demo2.pojo.StoreCartKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from storecart
+    where userId = #{userid,jdbcType=INTEGER}
+      and productid = #{productid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.dhu.demo2.pojo.StoreCartKey" >
+    delete from storecart
+    where userId = #{userid,jdbcType=INTEGER}
+      and productid = #{productid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dhu.demo2.pojo.StoreCartExample" >
+    delete from storecart
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dhu.demo2.pojo.StoreCart" >
+    insert into storecart (userId, productid, cateDate, 
+      productNum, sellerId)
+    values (#{userid,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER}, #{catedate,jdbcType=TIMESTAMP}, 
+      #{productnum,jdbcType=INTEGER}, #{sellerid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dhu.demo2.pojo.StoreCart" >
+    insert into storecart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="productid != null" >
+        productid,
+      </if>
+      <if test="catedate != null" >
+        cateDate,
+      </if>
+      <if test="productnum != null" >
+        productNum,
+      </if>
+      <if test="sellerid != null" >
+        sellerId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="catedate != null" >
+        #{catedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productnum != null" >
+        #{productnum,jdbcType=INTEGER},
+      </if>
+      <if test="sellerid != null" >
+        #{sellerid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dhu.demo2.pojo.StoreCartExample" resultType="java.lang.Integer" >
+    select count(*) from storecart
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update storecart
+    <set >
+      <if test="record.userid != null" >
+        userId = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.productid != null" >
+        productid = #{record.productid,jdbcType=INTEGER},
+      </if>
+      <if test="record.catedate != null" >
+        cateDate = #{record.catedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.productnum != null" >
+        productNum = #{record.productnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellerid != null" >
+        sellerId = #{record.sellerid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update storecart
+    set userId = #{record.userid,jdbcType=INTEGER},
+      productid = #{record.productid,jdbcType=INTEGER},
+      cateDate = #{record.catedate,jdbcType=TIMESTAMP},
+      productNum = #{record.productnum,jdbcType=INTEGER},
+      sellerId = #{record.sellerid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dhu.demo2.pojo.StoreCart" >
+    update storecart
+    <set >
+      <if test="catedate != null" >
+        cateDate = #{catedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productnum != null" >
+        productNum = #{productnum,jdbcType=INTEGER},
+      </if>
+      <if test="sellerid != null" >
+        sellerId = #{sellerid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=INTEGER}
+      and productid = #{productid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dhu.demo2.pojo.StoreCart" >
+    update storecart
+    set cateDate = #{catedate,jdbcType=TIMESTAMP},
+      productNum = #{productnum,jdbcType=INTEGER},
+      sellerId = #{sellerid,jdbcType=INTEGER}
+    where userId = #{userid,jdbcType=INTEGER}
+      and productid = #{productid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,292 @@
+/*商品分类*/
+#itemTypeWrapper {
+    border: 1px solid #E6E6E6;
+    word-break: keep-all;
+    margin: 8px;
+    padding: 8px;
+}
+
+/*商品分类隐藏按钮*/
+.layui-fixbar > li:nth-child(2) {
+    display: none;
+}
+
+#bannerWrapper {
+    padding-right: 8px;
+}
+
+#banner,
+#quickBar {
+    margin-top: 8px;
+}
+
+#quickBar blockquote {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#quickBar blockquote div.layui-row:not(:last-child) {
+    border-bottom: #FFB800 solid 1px;
+    padding-bottom: 10px;
+}
+
+#quickBar blockquote div.layui-row:not(:first-child) {
+    padding-top: 10px;
+}
+
+#hotBarWrapper {
+    border: 1px solid #E6E6E6;
+    margin: 8px;
+    margin-left: 0;
+    padding: 8px;
+    padding-top: 0;
+}
+
+#hotBar {
+    margin-right: 8px;
+}
+
+.hotPic {
+    padding: 5px;
+}
+
+.hotPic img {
+    width: 100%;
+    height: 180px;
+}
+
+.hotPic p {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    height: 18.5px;
+}
+
+.hotPic p.info {
+    font-size: 12px;
+}
+
+a.title {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+a.info {
+    font-size: 12px;
+    color: #979797;
+    margin-left: 2px;
+}
+
+span.info {
+    color: rgba(0, 0, 0, 0.7);
+    margin-left: 2px;
+}
+
+#webLogo {
+    font-size: 18px;
+    width: auto !important;
+    margin-left: 15px;
+}
+
+#webLogo .layui-icon {
+    font-size: 18px;
+}
+
+#webLogo > a {
+    color: #009688;
+}
+
+.layui-icon {
+    margin-right: 5px;
+}
+
+dl.layui-nav-child a {
+    padding: 0 10px !important;
+}
+
+#userList {
+    right: 0;
+    left: auto;
+    min-width: 0;
+    z-index: 1000;
+}
+
+#userList a {
+    text-align: right;
+}
+
+#userList i {
+    margin-right: 2px;
+}
+
+#userWrapper {
+    margin-left: 40px;
+}
+
+#userCenter dd > a {
+    text-align: center;
+}
+
+/*宣传大图*/
+
+#banner img {
+    width: 100%;
+    height: 100%;
+}
+
+/*底部栏*/
+
+#footer {
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #eee;
+    z-index: 11;
+}
+
+/*安卓APK下载*/
+#downloadApk {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*分享*/
+#share {
+    display: none;
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1300px) {
+    .quickTip {
+        font-size: 13px;
+    }
+
+    .hotPic img {
+        height: 150px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .quickTip {
+        font-size: 13px;
+    }
+
+    .hotPic img {
+        height: 130px;
+    }
+
+    .hotPic p {
+        font-size: 12px;
+    }
+
+    .hotPic p.info {
+        font-size: 11px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.5px) {
+    #hotBarWrapper {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 767.5px) {
+    /*商品分类控制开关*/
+    .layui-fixbar > li:first-child {
+        display: none;
+    }
+
+    #footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767.5px) {
+    #webLogo,
+    #webLogo .layui-icon {
+        font-size: 16px !important;
+    }
+
+    #webLogo {
+        margin-left: 10px !important;
+    }
+
+    #bannerWrapper,
+    #quickBar {
+        padding-left: 8px;
+    }
+
+    #hotBarWrapper {
+        margin-left: 8px;
+    }
+
+    /*商品分类*/
+    #itemTypeWrapper {
+        display: none;
+    }
+
+    #footer {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    /*消息提醒红点*/
+    #userWrapper > span.layui-badge-dot {
+        left: 0;
+    }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 540px) {
+    .hotPic p {
+        font-size: 12px;
+    }
+
+    .hotPic p.info {
+        font-size: 11px !important;
+    }
+
+    .hotPic {
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #banner {
+        height: 200px !important;
+    }
+
+    .hotPic.layui-col-xs6 {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    #navBar {
+        padding-right: 0px;
+    }
+
+    #banner {
+        height: 180px !important;
+    }
+
+    #shoppingMall > a {
+        padding: 0 5px !important;
+    }
+
+    #userCenter {
+        margin-left: 2px;
+    }
+
+    #userCenter > a {
+        padding-left: 5px !important;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .quickTip {
+        font-size: 13px;
+    }
+}

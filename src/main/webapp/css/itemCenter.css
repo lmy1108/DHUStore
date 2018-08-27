@@ -1,0 +1,244 @@
+/*商品分类*/
+#itemTypeWrapper {
+    border: 1px solid #E6E6E6;
+    word-break: keep-all;
+    margin: 8px;
+    padding: 8px;
+}
+
+/*商品分类隐藏按钮*/
+
+.layui-fixbar > li:nth-child(2) {
+    display: none;
+}
+
+a.title {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+a.info {
+    font-size: 12px;
+    color: #979797;
+    margin-left: 2px;
+}
+
+span.info {
+    color: rgba(0, 0, 0, 0.7);
+    margin-left: 2px;
+}
+
+#webLogo {
+    font-size: 18px;
+    width: auto !important;
+    margin-left: 15px;
+}
+
+#webLogo .layui-icon {
+    font-size: 18px;
+}
+
+#webLogo > a {
+    color: #009688;
+}
+
+.layui-icon {
+    margin-right: 5px;
+}
+
+dl.layui-nav-child a {
+    padding: 0 10px !important;
+}
+
+#userList {
+    right: 0;
+    left: auto;
+    min-width: 0;
+    z-index: 1000;
+}
+
+#userList a {
+    text-align: right;
+}
+
+#userList i {
+    margin-right: 2px;
+}
+
+#userWrapper {
+    margin-left: 40px;
+}
+
+#userCenter dd > a {
+    text-align: center;
+}
+
+/*搜索*/
+
+#searchWrapper,
+#itemWrapper {
+    border: 1px solid #E6E6E6;
+    margin: 8px;
+    margin-left: 0;
+}
+
+#searchWrapper .layui-inline {
+    padding: 8px;
+}
+
+#searchWrapper .label {
+    margin: 0 8px;
+}
+
+/*商品*/
+
+#itemWrapper {
+    padding: 0 8px;
+
+}
+
+.itemPadding {
+    padding: 5px;
+}
+
+.item {
+    border: 1px solid #EDEDED;
+}
+
+.item:hover {
+    border-color: #F40;
+}
+
+.item img {
+    width: 100%;
+    height: 180px;
+}
+
+.itemDetail {
+    padding: 8px;
+    font-size: 12px;
+    height: 100px;
+}
+
+.itemDetail > p {
+    margin-bottom: 8px;
+}
+
+.itemDetail .layui-badge {
+    font-size: 10px !important;
+    height: 16px !important;
+}
+
+.itemDetail .itemPriceWrapper {
+    color: #F40;
+    font-size: 18px;
+}
+
+.itemDetail .itemPrice {
+    font-weight: 700;
+}
+
+.itemDetail .viewNumWrapper {
+    float: right;
+    color: gray;
+    margin-top: 3px;
+}
+
+.itemDetail .itemName {
+    font-size: 13px;
+}
+
+.itemDetail .ownerWrapper {
+    color: gray;
+}
+
+.itemDetail .college {
+    float: right;
+    color: gray;
+}
+
+/*分页*/
+#changePage0, #changePage1, #changePage2, #changePage3 {
+    clear: both;
+    text-align: center;
+}
+
+.layui-laypage {
+    margin-bottom: 0;
+}
+
+.layui-tab-content {
+    padding-bottom: 0;
+}
+
+/*底部栏*/
+
+#footer {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #eee;
+}
+
+@media only screen and (min-width: 767.5px) {
+    /*商品分类控制开关*/
+    .layui-fixbar > li:first-child {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767.5px) {
+    #webLogo,
+    #webLogo .layui-icon {
+        font-size: 16px !important;
+    }
+
+    #webLogo {
+        margin-left: 10px !important;
+    }
+
+    /*商品分类*/
+    #itemTypeWrapper {
+        display: none;
+    }
+
+    #searchWrapper,
+    #itemWrapper {
+        margin-left: 8px !important;
+    }
+
+    #footer {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    /*消息提醒红点*/
+    #userWrapper > span.layui-badge-dot {
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .layui-col-xs6.itemPadding {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    #navBar {
+        padding-right: 0px;
+    }
+
+    #shoppingMall > a {
+        padding: 0 5px !important;
+    }
+
+    #userCenter {
+        margin-left: 2px;
+    }
+
+    #userCenter > a {
+        padding-left: 5px !important;
+    }
+}

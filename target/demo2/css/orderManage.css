@@ -1,0 +1,48 @@
+td .layui-btn + .layui-btn {
+    margin-left: 0 !important;
+}
+
+.layui-tab-content {
+    overflow: auto;
+}
+
+.layui-elem-quote {
+    margin-bottom: 0 !important;
+}
+
+.topWrapper {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.topWrapper .layui-btn {
+    padding: 0 16px !important;
+}
+
+.marginTop {
+    margin-top: 7px;
+}
+
+/*表格右侧固定列bug修复*/
+
+@media only screen and (max-width: 991px) {
+    .layui-table-fixed.layui-table-fixed-r.layui-hide {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .layui-container {
+        padding: 0 5px !important;
+    }
+
+    .layui-table-cell {
+        padding: 0 8px !important;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    #endedButtonWrapper {
+        margin-left: -7px;
+    }
+}

@@ -1,0 +1,44 @@
+.fa-fw {
+    margin-right: 6px;
+}
+
+.layui-form-label {
+    text-align: left !important;
+}
+
+#uploadItempicWrapper {
+    text-align: center;
+}
+
+#itemPic {
+    width: 240px;
+    border: whitesmoke solid 5px;
+    box-shadow: 0 0 10px 2px #ddd;
+    margin-bottom: 25px;
+}
+
+#uploadItemPic {
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 362px ) {
+    #buttonWrapper {
+        margin-left: 60px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    #itemSmallTypeWrapper {
+        max-width: 100px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 556px) {
+    #itemSmallTypeWrapper {
+        max-width: 100px;
+    }
+
+    #itemBigTypeWrapper {
+        max-width: 173px;
+    }
+}

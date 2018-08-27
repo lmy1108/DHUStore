@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--配置数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/store?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull"
+                        userId="root"
+                        password="86051062">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.dhu.demo2.pojo" targetProject="/Users/lmy/IdeaProjects/demo2/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--xml-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="/Users/lmy/IdeaProjects/demo2/src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--dao接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dhu.demo2.dao"  targetProject="/Users/lmy/IdeaProjects/demo2/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--指定哪个表的生成策略-->
+        <!--<table tableName="address" domainObjectName="Address" ></table>-->
+        <!--<table tableName="admin" domainObjectName="Admin" ></table>-->
+        <!--<table tableName="cate" domainObjectName="Cate" ></table>-->
+        <!--<table tableName="comment" domainObjectName="Comment" ></table>-->
+        <!--<table tableName="discount" domainObjectName="Discount" ></table>-->
+        <!--<table tableName="imagepath" domainObjectName="ImagePath" ></table>-->
+        <!--<table tableName="like" domainObjectName="Like" ></table>-->
+        <!--<table tableName="order_" domainObjectName="Order" ></table>-->
+        <!--<table tableName="orderitem" domainObjectName="OrderItem"></table>-->
+        <!--<table tableName="product" domainObjectName="Product" ></table>-->
+        <!--<table tableName="shipping" domainObjectName="Shipping" ></table>-->
+        <!--<table tableName="storecart" domainObjectName="StoreCart" ></table>-->
+        <!--<table tableName="user" domainObjectName="User" ></table>-->
+        <!--<table tableName="collect" domainObjectName="Collect" ></table>-->
+        <!--<table tableName="seller" domainObjectName="Seller" ></table>-->
+        <!--<table tableName="sellerImagepath" domainObjectName="SellerImagepath" ></table>-->
+        <table tableName="advertise" domainObjectName="Advertise" ></table>
+
+
+    </context>
+</generatorConfiguration>

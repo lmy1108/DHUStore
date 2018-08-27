@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhu.demo2.dao.AdvertiseMapper" >
+  <resultMap id="BaseResultMap" type="com.dhu.demo2.pojo.Advertise" >
+    <id column="advertiseId" property="advertiseid" jdbcType="INTEGER" />
+    <result column="advertiseName" property="advertisename" jdbcType="VARCHAR" />
+    <result column="productId" property="productid" jdbcType="INTEGER" />
+    <result column="uptime" property="uptime" jdbcType="TIMESTAMP" />
+    <result column="sellerId" property="sellerid" jdbcType="INTEGER" />
+    <result column="sellerName" property="sellername" jdbcType="VARCHAR" />
+    <result column="imagepath" property="imagepath" jdbcType="VARCHAR" />
+    <result column="downTime" property="downtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.dhu.demo2.pojo.Advertise" extends="BaseResultMap" >
+    <result column="adDetail" property="addetail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    advertiseId, advertiseName, productId, uptime, sellerId, sellerName, imagepath, downTime
+  </sql>
+  <sql id="Blob_Column_List" >
+    adDetail
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.dhu.demo2.pojo.AdvertiseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from advertise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dhu.demo2.pojo.AdvertiseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from advertise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from advertise
+    where advertiseId = #{advertiseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from advertise
+    where advertiseId = #{advertiseid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dhu.demo2.pojo.AdvertiseExample" >
+    delete from advertise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dhu.demo2.pojo.Advertise" >
+    insert into advertise (advertiseId, advertiseName, productId, 
+      uptime, sellerId, sellerName, 
+      imagepath, downTime, adDetail
+      )
+    values (#{advertiseid,jdbcType=INTEGER}, #{advertisename,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER}, 
+      #{uptime,jdbcType=TIMESTAMP}, #{sellerid,jdbcType=INTEGER}, #{sellername,jdbcType=VARCHAR}, 
+      #{imagepath,jdbcType=VARCHAR}, #{downtime,jdbcType=TIMESTAMP}, #{addetail,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dhu.demo2.pojo.Advertise" >
+    insert into advertise
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="advertiseid != null" >
+        advertiseId,
+      </if>
+      <if test="advertisename != null" >
+        advertiseName,
+      </if>
+      <if test="productid != null" >
+        productId,
+      </if>
+      <if test="uptime != null" >
+        uptime,
+      </if>
+      <if test="sellerid != null" >
+        sellerId,
+      </if>
+      <if test="sellername != null" >
+        sellerName,
+      </if>
+      <if test="imagepath != null" >
+        imagepath,
+      </if>
+      <if test="downtime != null" >
+        downTime,
+      </if>
+      <if test="addetail != null" >
+        adDetail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="advertiseid != null" >
+        #{advertiseid,jdbcType=INTEGER},
+      </if>
+      <if test="advertisename != null" >
+        #{advertisename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="uptime != null" >
+        #{uptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerid != null" >
+        #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="sellername != null" >
+        #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="imagepath != null" >
+        #{imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="downtime != null" >
+        #{downtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addetail != null" >
+        #{addetail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dhu.demo2.pojo.AdvertiseExample" resultType="java.lang.Integer" >
+    select count(*) from advertise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update advertise
+    <set >
+      <if test="record.advertiseid != null" >
+        advertiseId = #{record.advertiseid,jdbcType=INTEGER},
+      </if>
+      <if test="record.advertisename != null" >
+        advertiseName = #{record.advertisename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productid != null" >
+        productId = #{record.productid,jdbcType=INTEGER},
+      </if>
+      <if test="record.uptime != null" >
+        uptime = #{record.uptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sellerid != null" >
+        sellerId = #{record.sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellername != null" >
+        sellerName = #{record.sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imagepath != null" >
+        imagepath = #{record.imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.downtime != null" >
+        downTime = #{record.downtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addetail != null" >
+        adDetail = #{record.addetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update advertise
+    set advertiseId = #{record.advertiseid,jdbcType=INTEGER},
+      advertiseName = #{record.advertisename,jdbcType=VARCHAR},
+      productId = #{record.productid,jdbcType=INTEGER},
+      uptime = #{record.uptime,jdbcType=TIMESTAMP},
+      sellerId = #{record.sellerid,jdbcType=INTEGER},
+      sellerName = #{record.sellername,jdbcType=VARCHAR},
+      imagepath = #{record.imagepath,jdbcType=VARCHAR},
+      downTime = #{record.downtime,jdbcType=TIMESTAMP},
+      adDetail = #{record.addetail,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update advertise
+    set advertiseId = #{record.advertiseid,jdbcType=INTEGER},
+      advertiseName = #{record.advertisename,jdbcType=VARCHAR},
+      productId = #{record.productid,jdbcType=INTEGER},
+      uptime = #{record.uptime,jdbcType=TIMESTAMP},
+      sellerId = #{record.sellerid,jdbcType=INTEGER},
+      sellerName = #{record.sellername,jdbcType=VARCHAR},
+      imagepath = #{record.imagepath,jdbcType=VARCHAR},
+      downTime = #{record.downtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dhu.demo2.pojo.Advertise" >
+    update advertise
+    <set >
+      <if test="advertisename != null" >
+        advertiseName = #{advertisename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null" >
+        productId = #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="uptime != null" >
+        uptime = #{uptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerid != null" >
+        sellerId = #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="sellername != null" >
+        sellerName = #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="imagepath != null" >
+        imagepath = #{imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="downtime != null" >
+        downTime = #{downtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addetail != null" >
+        adDetail = #{addetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where advertiseId = #{advertiseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dhu.demo2.pojo.Advertise" >
+    update advertise
+    set advertiseName = #{advertisename,jdbcType=VARCHAR},
+      productId = #{productid,jdbcType=INTEGER},
+      uptime = #{uptime,jdbcType=TIMESTAMP},
+      sellerId = #{sellerid,jdbcType=INTEGER},
+      sellerName = #{sellername,jdbcType=VARCHAR},
+      imagepath = #{imagepath,jdbcType=VARCHAR},
+      downTime = #{downtime,jdbcType=TIMESTAMP},
+      adDetail = #{addetail,jdbcType=LONGVARCHAR}
+    where advertiseId = #{advertiseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dhu.demo2.pojo.Advertise" >
+    update advertise
+    set advertiseName = #{advertisename,jdbcType=VARCHAR},
+      productId = #{productid,jdbcType=INTEGER},
+      uptime = #{uptime,jdbcType=TIMESTAMP},
+      sellerId = #{sellerid,jdbcType=INTEGER},
+      sellerName = #{sellername,jdbcType=VARCHAR},
+      imagepath = #{imagepath,jdbcType=VARCHAR},
+      downTime = #{downtime,jdbcType=TIMESTAMP}
+    where advertiseId = #{advertiseid,jdbcType=INTEGER}
+  </update>
+</mapper>

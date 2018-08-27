@@ -1,0 +1,122 @@
+.layui-layout-admin .layui-logo {
+    font-size: 18px !important;
+    width: auto !important;
+}
+
+.layui-icon {
+    font-size: 18px !important;
+    margin-right: 5px;
+}
+
+.layui-nav-tree .layui-nav-child a {
+    padding-left: 43px;
+}
+
+#userList {
+    right: 0;
+    left: auto;
+    min-width: 0;
+    z-index: 1000;
+}
+
+#userList a {
+    text-align: right;
+}
+
+#userList i {
+    margin-right: 2px;
+}
+
+.layui-icon-spread-left:before {
+    content: "\e66b";
+}
+
+.layui-icon-shrink-right:before {
+    content: "\e668";
+}
+
+#showSideWrapper {
+    padding-top: 2px;
+}
+
+#showSide {
+    padding: 10px;
+    color: white;
+    font-size: 25px !important;
+}
+
+/*#sideNav {*/
+    /*transition: transform ease-in-out 0.5s;*/
+/*}*/
+
+.layui-body {
+    overflow: hidden;
+}
+
+.layui-body,
+.layui-footer {
+    transition: left ease-in-out 0.5s;
+}
+
+#innerPage {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform ease-in-out 0.5s;
+    transform: translateX(-100%);
+}
+
+.mask.close {
+    transform: translateX(200px);
+}
+
+@media only screen and (max-width: 767.5px) {
+    #userWrapper {
+        padding-right: 0 !important;
+    }
+
+    #userWrapper li > a {
+        padding-left: 0 !important;
+    }
+
+    .hide-side {
+        transform: translateX(-200px);
+    }
+
+    .full-screen {
+        left: 0 !important;
+    }
+
+    .layui-footer {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .mask {
+        transform: translateX(0);
+    }
+
+    .mask.close {
+        transform: translateX(200px);
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /*消息提醒红点*/
+    #userWrapper > span.layui-badge-dot {
+        left: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #webLogo {
+        display: block !important;
+    }
+}

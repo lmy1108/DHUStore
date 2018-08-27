@@ -1,0 +1,51 @@
+.fa-fw {
+    margin-right: 6px;
+}
+
+#headpicWrapper {
+    text-align: center;
+}
+
+#headPic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+span.info {
+    color: rgba(0, 0, 0, 0.7);
+    margin-left: 2px;
+}
+
+span.info i {
+    margin-right: 0 !important;
+}
+
+#credit,
+#level {
+    float: left;
+}
+
+/*
+#creditRank,
+#levelRank {
+	float: right;
+}
+*/
+
+.barMargin {
+    margin-top: 4px;
+    margin-bottom: 15px;
+}
+
+#toolBar {
+    margin-top: 25px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    #toolBar {
+        margin-bottom: 25px;
+    }
+}

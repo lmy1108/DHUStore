@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="tinymce/tinymce.min.js"></script>
+  <script type="text/javascript" src="tinymce/plugins/jquery.js"></script>
+
+  <script type="text/javascript" src="tinymce/plugins/jquery.form.js"></script>
+
+</head>
+
+
+<script>
+	
+tinymce.init({
+  selector: 'textarea',
+  height: 500,
+  theme: 'modern',
+  plugins: 'print preview fullpage  searchreplace autolink directionality  visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount   imagetools    contextmenu colorpicker textpattern help link imageupload',
+  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat  | imageupload link' ,
+  image_advtab: true,
+  imageupload_url: '{:U("File/uploadPicture")}',
+
+  templates: [
+    { title: 'Test template 1', content: 'Test 1' },
+    { title: 'Test template 2', content: 'Test 2' }
+  ],
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css'
+  ]
+ });
+
+
+ tinymce.init({
+    selector: "textarea",
+    language : "zh_CN",
+    language_url : "__ASSETS__/TinymceEditor/langs/zh_CN.js", // 语言包，需要到官网去下载，你也可以不使用中文语言包
+    menubar: false,
+    convert_urls: false,
+    height: 450,
+    plugins: [
+      "link imageupload"
+    ],
+    toolbar: "undo redo | imageupload link | bold italic | alignleft aligncenter alignright alignjustify",
+    imageupload_url: '{:U("File/uploadPicture")}'
+  });
+
+
+</script>
+<style type="text/css">
+	body {
+  padding: 5px;
+}
+.mce-window {
+    transform: initial !important;
+}
+</style>
+<body>
+<textarea name="content" style="width:100%"></textarea>
+</body>
+</html>
