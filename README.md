@@ -1,5 +1,5 @@
 # DHUStore
-## 1 Diagram of functions
+## 1 Diagram of function
 ![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.png)
 ## 2.1 FrontEnd technologies
 ### 2.1.1 LayUI
