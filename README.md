@@ -1,164 +1,26 @@
 # DHUStore
-## 1 功能图示
+## 1 Diagram of functions
 ![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.png)
-## 2.1 前端技术
+## 2.1 FrontEnd technologies
 ### 2.1.1 LayUI
-layUI是一款采用自身模块规范编写的前端 UI 框架，遵循原生 HTML/CSS/JS 的书写与组织形式。本项目使用了LayUI提供的后台框架进行本系统后台的架构，并使用大量LayUI组件，例如一些小图标等，用于完善系统功能，美化界面。
+layUI is a front-end UI framework written in its own module specification, following the writing and organization of native HTML/CSS/JS. This project uses the background framework provided by LayUI to carry out the back-end architecture of the system, and uses a large number of LayUI components, such as some small icons, to improve system functions and beautify the interface.
 ### 2.1.2 Bootstarp
-本系统使用Bootstrap提供的HTML和CSS规范来优化前端界面。使用到其中的响应式布局，使本系统能够兼容多个终端，为用户提供更好的界面和用户体验。同时，本系统还使用到了jQuery，Bootstrap内置的jQuery插件可以与其配合使用，便于开发。
+The system uses the HTML and CSS specifications provided by Bootstrap to optimize the front-end interface. The responsive layout used to make the system compatible with multiple terminals provides users with a better interface and user experience. At the same time, this system also uses jQuery, Bootstrap's built-in jQuery plug-in can be used together to facilitate development.
 ### 2.1.3 jQuery+jQueryUI
-本系统使用了jQuery中的Javascript脚本库，并使用jQuery提供的功能函数，完成编码逻辑，实现业务功能，并解决了多个浏览器的兼容性问题。
-本系统使用了大量jQuery UI中的插件以及动画特效，例如本系统中的选择日期的日历、统计生成的图表等。同时它是免费开源的，可根据需要自定义甚至重新设计，十分方便易用。
-## 2.2后端技术
+This system uses the Javascript script library in jQuery, and uses the function functions provided by jQuery to complete the coding logic, realize the business functions, and solve the compatibility problems of multiple browsers.
+This system uses a lot of plug-ins in jQuery UI and animation effects, such as calendars for selecting dates in the system, statistically generated charts, and so on. At the same time it is free and open source, can be customized or even redesigned according to needs, very convenient and easy to use.
+## 2.2 Backend Technologies
 ### 2.2.1 JSP
-JSP有静态部分和动态部分组成，可在其中嵌入Java脚本。本系统主要使用到了JSTL的迭代标签<c:forEach>，结合EL表达式${}，迭代输出标签内部的内容，简化迭代操作。
+JSP has a static part and a dynamic part, in which Java scripts can be embedded. This system mainly uses JSTL's iteration tag <c:forEach>, combined with the EL expression ${}, iteratively outputs the content inside the tag, simplifying the iterative operation
 ### 2.2.2 MyBatis
-MyBatis是一个实现了JPA规范的用来连接数据库并对其进行增、删、改、查操作的开源框架，底层就是一个JDBC封装的组件。
-本系统主要使用了Mybatis-Generator，一个自动生成实体代码的插件，使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。
+MyBatis is an open source framework that implements the JPA specification to connect to a database and add, delete, modify, and check it. The underlying is a JDBC-encapsulated component.
+This system mainly uses Mybatis-Generator, a plug-in that automatically generates entity code. It can easily generate entity class, Mapper interface and corresponding XML file.
 ### 2.2.3 Spring
-Spring是一个开源框架，主要优势之一就是其分层架构，分层架构允许使用者选择使用哪一个组件，同时为 J2EE 应用程序开发提供集成的框架。Spring使用基本的JavaBean来完成以前只可能由EJB完成的事情。Spring的核心是控制反转（IoC）和面向切面（AOP）。
+Spring is an open source framework. One of its main advantages is its layered architecture, which allows users to choose which component to use and provides an integrated framework for J2EE application development. Spring uses basic JavaBeans to do things that were previously only possible with EJBs. The core of Spring is Control Inversion (IoC) and Aspect Orientation (AOP).
 ### 2.2.4 SpringMVC
-Spring MVC框架提供了一个DispatcherServlet作为前端控制器来分派请求，同时提供灵活的配置处理程序映射、视图解析、语言环境和主题解析，支持文件上传，每一个功能实现由一个专门的对象负责完成。Spring MVC还分离了控制器、模型对象、分派器以及处理程序对象的角色。
+The Spring MVC framework provides a DispatcherServlet as a front-end controller to dispatch requests, while providing flexible configuration handler mapping, view resolution, locale and topic resolution, and file upload support. Each function implementation is handled by a dedicated object. Spring MVC also separates the roles of controllers, model objects, dispatchers, and handler objects.
 ### 2.2.5 Maven
-Maven仓库用来存放Maven管理的所有Jar包，分为本地仓库和中央仓库。在Maven中一个项目都是用一个唯一的坐标来表示。本项目在开发中，需要依赖于其他的一些项目，所以 PO应该具备dependencies这个属性，用来表示其所依赖的外部项目，pom.xml就是PO对象的XML描述。
-## 3.1登陆模块设计说明
-### 1）程序描述
-a．模块设计目的：提供用户登录进入系统的服务，并对用户信息进行加密；
-b．模块面向用户：买家、卖家、管理员；
-### 2）设计思想
-前端：
-前端登录需要使用的form提交的方式，并需要对密码进行加密，将采取ajax的方式进行post操作，在ajax传输之前调用开源的tripledes.js中的encryptByDES方法进行加密操作，使用HTML中的方法将文本框中的字符串重新赋值为加密后的文本，最后设置ajax提交中的data，提交表单。
-后端：
-在接收到加密字符串的同时，调用DESUtil.decryption方法进行解密，将得到的对象重新赋值于user对象。通过用户名和密码查询数据库中是否有符合的用户。错误提示的方法是在前端设置一个不可见的error域，若后端用户名和密码不匹配，使用model的方法添加error信息，错误提示才显示。
+The Maven repository is used to store all the Jar packages managed by Maven, divided into local warehouses and central warehouses. A project in Maven is represented by a unique coordinate. In the development of this project, it needs to rely on other projects, so PO should have the dependency attribute to represent the external project it depends on, and pom.xml is the XML description of the PO object.
 
-
-## 3.2注册模块设计说明
-### 1）程序描述
-a．模块设计目的：提供注册的服务，并实时对输入信息进行验证并提示；
-b．模块面向用户：买家、卖家；
-### 2）设计思想
-前端：
-注册需要前端校验输入的格式。使用Jquery自带的validate模块，并于后面分别添加rules和message两组信息，分别代表校验规则，和校验错误时的提示。
-后端：
-注册的后端主要实现用户名验证和错误信息回传。后端需要能够判断该用户名是否已经被注册过。使用用户名作为约束条件进行数据库检索，若返回的List为空，即该用户名没有被注册过。如果不为空，将错误信息传回前端提示。最后将这组注册信息插入数据库。
-
-
-## 3.3信息浏览模块设计说明
-### 1）程序描述
-a．模块设计目的：提供用户对商品信息、广告信息、卖家信息的服务；
-b．模块面向用户：游客、买家；
-### 2）设计思想
-前端：
-a．主页需要美观且清晰，使用bootstrap作为前端框架，添加导航栏、轮播插件和一些其他模板上的效果较好的显示控件，并在轮播模块实现广告显示。
-b．信息显示中，前端使用jsp的for-each标签对后台传来的数据对象进行遍历显示。
-后端：
-a．后端的主要实现选择所需要的数据，一共包括三类：商品分类数据，卖家数据和广告数据。卖家数据将所有卖家信息遍历一遍，广告数据根据发布时间选择最近时间的五个广告，商品数据根据所选择的分类来添加查询约束条件，只查询术语该分类的商品。
-b．搜索功能在商品查询的同时添加约束，在查询的同时使用正则表达式对字符串子串进行查找。
-
-## 3.4个人信息管理模块设计说明
-### 1）程序描述
-a．模块设计目的：提供用户对个人基本信息、头像进行查看及修改的服务，并实时对输入信息进行验证并提示；
-b．模块面向用户：卖家、买家；
-### 2）设计思想
-前端：
-用户管理的前端，使用layui作为主要的开发框架。个人信息中头像上传使用Spring的multipartResolver；除了调用上传模块，还需将已上传的图片路径和表单一起提交，需要一个隐藏的input输入框来保存图片名称。在点击提交个人信息的同时将头像的图片名和其他信息一起通过ajax上传。
-后端：
-使用CommonsMultipartResolver进行文件接收，接受完成后存储于指定目录，之后的上传只需图片名，所有图片使用相同的目录。
-
-## 3.5购物车模块设计说明
-### 1）程序描述
-a．模块设计目的：提供用户将想要购买的商品进行加入购物车及结算购物车中商品的服务；
-b．模块面向用户：买家；
-### 2）设计思想
-前端：
-购物车页面使用bootstrap，并使用ajax传输数据，foreach标签实现循环显示全部数据。
-后端：
-a．后端处理实现添加商品至购物车，删除购物车中的商品，修改购物车商品数量，与显示购物车中的商品四个部分，分别对应数据库中的增删查改四个操作；
-b．显示购物车通过查询用户id所对应的购物车列表传递json数据至前端完成操作，修改操作则需要进一步通过商品id查询特定购物车单号进行操作。
-
-
-## 3.6收藏模块设计说明
-### 1）程序描述
-a．模块设计目的：提供用户将喜欢的商品进行收藏或删除收藏商品的服务；
-b．模块面向用户：买家；
-### 2）设计思想
-前端：
-a．收藏页面需要实现“爱心图标”，点击一下就可以变成 “实心爱心”的图标，在点击的同时将修改收藏状态传到后台。
-b．在用户个人后台中找到收藏的商品。前端使用jsp的if标签，判断用户对这件商品的收藏状态，如果未收藏显示glyphicon-heart-empty（glyphicon是bootstrap自带的免费图标集），如果已收藏则显示glyphicon-heart(实心)。
-后端：
-a．后端主要处理收藏表的状态变更和用户查看自己的收藏，点击收藏按钮后，直接将用户ID和商品ID传回后台，添加或删除collection表中的信息。
-b．使用PageHelper插件实现分页。插件的主要将需要传回前台的对象再封装在一个Page类里面，Page类包含原来的对象，及每一页中显示的商品个数，传回前台后就可以根据前台逻辑调取每页的对象。
-
-## 3.7评价模块设计说明
-### 1）程序描述
-a．模块设计目的：提供用户对自己购买过的商品进行评价的服务；
-b．模块面向用户：买家；
-### 2）设计思想
-前端：
-评论实现顺序显示，添加评价，添加星级。前端主要实现弹窗、打分、和显示，弹窗使用bootstrap中的modal模态框。在点击弹出按钮前，模态框处于隐藏状态，点击之后弹出，模态框中可以任意添加表单里的元素。打分功能需要使用jquery的插件jquery.raty.js，可视化选择1-5星，并将保存的星级保存在javascript的var对象中，便于传回后台。
-后端：
-发表评论保证只有购买过此商品的用户才可以评论，需要在页面加载之前调用后台，将当前session里的用户所有的购买过的商品选出，检查当前商品是否存在于列表，如果存在则可以评论，如果不存在则无法评论。
-
-
-## 3.8订单管理模块设计说明
-### 1）程序描述
-a．模块设计目的：提供买家对个人订单管理、卖家对该卖家的销售订单管理、管理员对所有销售订单进行管理的服务；
-b．模块面向用户：买家、卖家、管理员；
-### 2）设计思想
-前端：
-a．订单管理表格中实现元素查询，使用layui的表格插件，自动实现前端排序、宽度调节和分页等功能。表格需要使用重载的方法来进行表格的局部刷新，并且在刷新的同时添加条件约束，并实现特定条件的查询。
-b．对于订单的修改操作需要在表格中添加一些完成订单，确认收货的操作按钮，需要自定义数据表格中的按钮，在此按钮中添加事件(event)，在事件中使用ajax方法将数据传回后端进行修改。
-后端：
-a．所有的订单有四种不同的状态：未付款、已付款未发货、已发货、已收货。当前端点击不同的选项卡时，需要后端返回不同的json数据。实现函数非常相近，选择时增加的约束条件不同。
-b．卖家部分需要实现的操作是发货、完成订单，买家部分需要实现的操作是确认订单、确认收货。
-c．根据日期查询订单，需要避免出现前端日期和数据库保存日期格式不一致的情况，需要对POJO类中所有以Date为返回类型的函数添加@JsonFormat注解，将从数据库中获得的日期改为标准字符串的格式。
-
-## 3.9商品管理模块设计说明
-### 1）程序描述
-a．模块设计目的：提供卖家对该卖家的商品信息进行管理、管理员对所有商品进行管理的服务；
-b．模块面向用户：卖家、管理员；
-### 2）设计思想
-前端：
-商品管理分为卖家和管理员，卖家部分需要实现商品发布、商品预览和删除，管理员部分需要实现商品编辑和删除。
-在商品发布中需要实现上传图片的模块，使用富文本编辑器，且编辑器也需要上传图像，需要单独把图片路径配置在编辑器的前端配置里。
-layui的表格支持自定义模板，将图片文件名转换成<img href=“”>，实现在表格中显示图片。
-后端：
-商品的后端通过Mybatis完成基本的添加、删除、编辑。
-
-## 3.10用户管理模块设计说明
-### 1）程序描述
-a．模块设计目的：提供管理员对所有的买家、卖家进行管理的服务；
-b．模块面向用户：管理员；
-### 2）设计思想
-本模块只有管理员可以使用，使用layui的表格控件，并添加许多可以供搜索的约束条件，包括根据卖家和买家的ID、昵称、姓名、注册时间范围、手机和电子邮箱，通过表格重载的方式进行查询。
-在编辑操作中需要使用layer插件，此插件是基于iframe的弹出框，实现自由的操控弹出层，并且可以在弹出层提交表单。
-
-## 3.11评论管理模块设计说明
-### 1）程序描述
-a．模块设计目的：提供管理员对所有买家评论进行管理的服务；
-b．模块面向用户：管理员；
-### 2）设计思想
-评论的管理主要实现删除恶意评论，暂定不需要编辑的功能；评论将保存在表格中，除了用户、商品和时间，需要实现通过模糊查询进行搜索评论内容，在mybatis-generator 的select函数中添加约束即可。
-
-## 3.12广告管理模块设计说明
-### 1）程序描述
-a．模块设计目的：提供卖家管理商品广告的服务；
-b．模块面向用户：卖家；
-### 2）设计思想
-前端：
-广告管理需要使用富文本插件TinyMCE，实现从排版编辑，字体调整，到插入图片、视频、表格等等100多种全面的编辑功能，对于word复制下来的样式可以有较好的适应性。广告的发布需要实现图片上传功能。
-后端：
-a．广告卖家可以选择上架的时间，分别有1天、3天、7天和30天的选项，在每次由用户访问主页时，将对每个广告的上架日期和下架日期进行判断，只显示下架日期未到的广告。
-
-## 3.13数据统计模块设计说明
-### 1）程序描述
-a．模块设计目的：提供管理员对系统中各项销售数据进行统计，方便实时监测系统数据的服务；
-b．模块面向用户：管理员；
-### 2）设计思想
-前端：
-前端需要使用highcharts图表库所提供的web图表，与后台界面相结合。在卖家商品占比这一统计中，需要根据卖家数量动态更新统计种类，且掌握javascript中List和Object的区别。在循环添加对象值到最终的显示对象的时候，每次循环都需要新创建一个对象。
-后端：
-a．统计销售数据时需要通过orderitem表中订单标识符、商品标识符查询到对应的卖家和商品种类，并在查询时计算订单中相关商品的总价格，计算不同的查询分类销售数据中。
-b．在统计月份数据时需要运用了java中自带的月份查询函数，对于获取的日期，并将统计数据根据月份进行计算。在统计销售占比时，需要对统计数据进行排序，通过构造User数据类（包括卖家销售占比与卖家名称），并对集合排序方法重写完成排序功能，需要借助Java中提供的对集合进行操作的工具类Collections的sort方法和系统中的逆序方法。
 
 
