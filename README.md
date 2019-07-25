@@ -1,5 +1,15 @@
 # DHUStore
 ![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.png)
+# Display
+![image1](https://github.com/lmy1108/DHUStore/blob/master/image/dhu6.PNG)
+![image2](https://github.com/lmy1108/DHUStore/blob/master/image/dhu1.PNG)
+![image3](https://github.com/lmy1108/DHUStore/blob/master/image/dhu2.PNG)
+
+![image4](https://github.com/lmy1108/DHUStore/blob/master/image/dhu3.PNG)
+
+![image5](https://github.com/lmy1108/DHUStore/blob/master/image/dhu4.PNG)
+![image6](https://github.com/lmy1108/DHUStore/blob/master/image/dhu5.PNG)
+
 ## FrontEnd technologies
 ### LayUI
 layUI is a front-end UI framework written in its own module specification, following the writing and organization of native HTML/CSS/JS. This project uses the background framework provided by LayUI to carry out the back-end architecture of the system, and uses a large number of LayUI components, such as some small icons, to improve system functions and beautify the interface.
