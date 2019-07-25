@@ -1,5 +1,5 @@
 # DHUStore
-![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.png)
+![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.pn)
 # Display
 ![image1](https://github.com/lmy1108/DHUStore/blob/master/image/dhu6.PNG)
 ![image2](https://github.com/lmy1108/DHUStore/blob/master/image/dhu1.PNG)
