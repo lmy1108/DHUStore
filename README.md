@@ -1,8 +1,7 @@
 # DHUStore
-![导图](https://github.com/lmy1108/DHUStore/blob/master/image/graph.pn)
+![导图](https://github.com/lmy1108/DHUStore/blob/master/image/DHUStore.jpg)
 # Display
 ![image1](https://github.com/lmy1108/DHUStore/blob/master/image/dhu6.PNG)
-![image2](https://github.com/lmy1108/DHUStore/blob/master/image/dhu1.PNG)
 ![image3](https://github.com/lmy1108/DHUStore/blob/master/image/dhu2.PNG)
 
 ![image4](https://github.com/lmy1108/DHUStore/blob/master/image/dhu3.PNG)
